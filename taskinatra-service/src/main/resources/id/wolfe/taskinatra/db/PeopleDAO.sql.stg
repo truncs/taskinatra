@@ -1,0 +1,21 @@
+group PeopleDAO;
+
+createPeopleTable() ::= <<
+  CREATE TABLE people(id Serial primary key, name varchar(255), login varchar(255), password varchar(255))
+>>
+
+findById() ::= <<
+  select id, name, login from people where id = :id
+>>
+
+findByLogin() ::= <<
+  select id, name, login from people where login = :login
+>>
+
+create() ::= <<
+  insert into people (name, login, password) values (:name, :login, :password)
+>>
+
+findAll() ::= <<
+  select id, name, login from people
+>>
